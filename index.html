@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dual Citizenship Legislative Console</title>
+<style>
+  body {
+    background-color:#111;
+    color:#f4f1ee;
+    font-family:"Courier New",monospace;
+    padding:40px;
+    line-height:1.5;
+  }
+  button {
+    background:#222;
+    color:#f4f1ee;
+    padding:10px 20px;
+    border:1px solid #555;
+    font-family:inherit;
+    cursor:pointer;
+  }
+  #output {
+    white-space:pre-wrap;
+    border-top:1px solid #555;
+    margin-top:20px;
+    padding-top:10px;
+  }
+  a { color:#79b8ff; text-decoration:none; }
+</style>
+</head>
+<body>
+<h1>Dual Citizenship Legislative Console</h1>
+<p>This is the GitHub Pages edition of the legislative transparency tool.
+It runs fully in your browser using <code>fetch</code> requests to public APIs.</p>
+
+<button onclick="run()">Run Analysis</button>
+<div id="output">Awaiting query...</div>
+
+<script>
+// Keywords to analyze
+const KEYWORDS = ["dual citizenship","Israel","AIPAC","foreign agent","lobbying influence"];
+// Basic open-data endpoints
+const SOURCES = [
+  "https://api.congress.gov/v3/bill?api_key=DEMO_KEY",
+  "https://api.govinfo.gov/collections/BILLS?api_key=DEMO_KEY"
+];
+
+async function run(){
+  const out = document.getElementById("output");
+  out.textContent = "Fetching public data…";
+  let results = [];
+  for (let kw of KEYWORDS){
+    for (let src of SOURCES){
+      try {
+        const r = await fetch(src);
+        const txt = await r.text();
+        if (txt.toLowerCase().includes(kw.toLowerCase())){
+          results.push({keyword:kw,source:src});
+        }
+      } catch(e){
+        console.log("Error:",e);
+      }
+    }
+  }
+  if(results.length===0){
+    out.textContent="No direct matches found in sample demo feed.";
+  } else {
+    out.textContent="Matches found:\n"+JSON.stringify(results,null,
