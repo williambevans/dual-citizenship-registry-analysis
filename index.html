@@ -3,76 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dual Citizenship Legislative Console</title>
+<title>Dual Citizenship & Legislative Influence — PhD Framework</title>
 <style>
   body {
     background-color:#111;
     color:#f4f1ee;
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
     padding:40px;
-    line-height:1.5;
+    line-height:1.6;
+    max-width:900px;
+    margin:auto;
   }
-  button {
-    background:#222;
-    color:#f4f1ee;
-    padding:10px 20px;
-    border:1px solid #555;
-    font-family:inherit;
-    cursor:pointer;
+  h1, h2 {
+    border-bottom:1px solid #555;
+    padding-bottom:4px;
   }
-  #output {
-    white-space:pre-wrap;
-    border-top:1px solid #555;
-    margin-top:20px;
-    padding-top:10px;
+  section {
+    margin-bottom:40px;
   }
   a { color:#79b8ff; text-decoration:none; }
+  footer {
+    border-top:1px solid #555;
+    padding-top:10px;
+    margin-top:60px;
+    font-size:0.9em;
+    color:#bbb;
+  }
 </style>
 </head>
 <body>
-<h1>Dual Citizenship Legislative Console</h1>
-<p>This is the GitHub Pages edition of the legislative transparency tool.
-It runs fully in your browser using <code>fetch</code> requests to public APIs.</p>
 
-<button onclick="run()">Run Analysis</button>
-<div id="output">Awaiting query...</div>
+<h1>Dual Citizenship & Legislative Influence<br>Doctoral Research Framework</h1>
+<p><strong>Author:</strong> William H. Bevans Jr.<br>
+<strong>Affiliation:</strong> TitleChain Research Initiative / Coalition Transparency Project<br>
+<strong>Repository:</strong> <a href="https://github.com/yourusername/dual-citizenship-registry-analysis" target="_blank">GitHub Repository</a><br>
+<strong>Published:</strong> 2025</p>
 
-<script>
-// Keywords to analyze
-const KEYWORDS = ["dual citizenship","Israel","AIPAC","foreign agent","lobbying influence"];
-// Basic open-data endpoints
-const SOURCES = [
-  "https://api.congress.gov/v3/bill?api_key=DEMO_KEY",
-  "https://api.govinfo.gov/collections/BILLS?api_key=DEMO_KEY"
-];
+<!-- =================== OUTLINE ==================== -->
+<section>
+<h2>1. Abstract</h2>
+<p>
+This research investigates intersections between <em>dual citizenship, lobbying influence, and legislative policy formation</em> within U.S. and international frameworks. 
+It evaluates how transnational affiliations and economic interests shape governance through data analysis, historical comparison, and machine-readable transparency tools.
+</p>
+</section>
 
-async function run(){
-  const out = document.getElementById("output");
-  out.textContent = "Fetching public data…";
-  let results = [];
-  for (let kw of KEYWORDS){
-    for (let src of SOURCES){
-      try {
-        const r = await fetch(src);
-        const txt = await r.text();
-        if (txt.toLowerCase().includes(kw.toLowerCase())){
-          results.push({keyword:kw,source:src});
-        }
-      } catch(e){
-        console.log("Error:",e);
-      }
-    }
-  }
-  if(results.length===0){
-    out.textContent="No direct matches found in sample demo feed.";
-  } else {
-    out.textContent="Matches found:\n"+JSON.stringify(results,null,2);
-  }
-}
-</script>
+<section>
+<h2>2. Introduction & Rationale</h2>
+<p>
+Dual citizenship in positions of political or economic authority raises questions of loyalty, disclosure, and transnational influence. 
+This study builds a reproducible, open-source framework to measure how these affiliations correlate with voting records, lobbying expenditures, and legislative sponsorship patterns.
+</p>
+</section>
 
-<footer style="margin-top:40px;border-top:1px solid #555;padding-top:10px;">
-  <small>© 2025 William H. Bevans Jr • Research use only • Published via GitHub Pages</small>
+<section>
+<h2>3. Literature Review</h2>
+<p>
+Surveys prior research on lobbying transparency (FARA, OpenSecrets), comparative citizenship studies, and post-Cold-War policy influence.
+Integrates political theory (Habermas, Dahl), legal precedent (Foreign Agents Registration Act, 1938), and sociological perspectives on globalization and elite networks.
+</p>
+</section>
+
+<section>
+<h2>4. Research Questions</h2>
+<ul>
+<li>How does dual citizenship correlate with legislative or lobbying behavior in key sectors (defense, energy, real estate)?</li>
+<li>Are patterns of policy sponsorship statistically linked to foreign economic networks?</li>
+<li>Can open-data architectures improve accountability and disclosure standards?</li>
+</ul>
+</section>
+
+<section>
+<h2>5. Hypotheses</h2>
+<ol>
+<li>Dual citizenship is overrepresented in lobbying sectors involving international contracts.</li>
+<li>Data transparency correlates inversely with the complexity of foreign influence structures.</li>
+<li>Legislative openness and AI-driven public datasets can improve public trust metrics.</li>
+</ol>
+</section>
+
+<section>
+<h2>6. Methodology</h2>
+<p>
+Combines mixed-method approaches:
+<ul>
+<li><strong>Quantitative:</strong> Python scripts scrape and correlate legislative records (GovTrack, Congress.gov) with corporate entities (SEC, FARA, ProPublica).</li>
+<li><strong>Qualitative:</strong> Document analysis of testimonies, lobbying disclosures, and case-law interpretations.</li>
+<li><strong>Ethnographic:</strong> Semi-structured interviews with policy scholars, journalists, and lobbyists under IRB-approved consent.</li>
+</ul>
+</p>
+</section>
+
+<section>
+<h2>7. Data Architecture</h2>
+<p>
+Implements modular datasets:
+<pre>
+data_raw/        # Source files (legislation, lobbying, registries)
+data_processed/  # Cleaned, normalized records
+analysis/        # Jupyter or script-driven analysis
+outputs/         # Tables, graphs, and reports
+</pre>
+Each record includes metadata, provenance, and authenticity classification (verified, satire, propaganda).
+</p>
+</section>
+
+<section>
+<h2>8. Ethical Considerations</h2>
+<p>
+Complies with APA-7 and IRB standards.  
+No personally identifiable information (PII) or non-public data are published.  
+Analyses focus on structural influence — not individual moral evaluation.  
+Sources are cited with access dates, and scripts are reproducible and idempotent.
+</p>
+</section>
+
+<section>
+<h2>9. Analytical Framework</h2>
+<p>
+Uses a triangulated model:
+<ul>
+<li><strong>Structural:</strong> Data-driven mapping of citizenship and lobbying overlaps.</li>
+<li><strong>Relational:</strong> Network graphs of organizations, donors, and policy sponsors.</li>
+<li><strong>Temporal:</strong> Timeline analysis of legislative votes and foreign investments.</li>
+</ul>
+</p>
+</section>
+
+<section>
+<h2>10. Findings (Projected)</h2>
+<p>
+Expected outcomes include identification of high-frequency co-occurrences between dual citizenship records and specific policy categories.
+Machine-learning clustering may reveal transnational legislative patterns previously obscured by manual disclosure filings.
+</p>
+</section>
+
+<section>
+<h2>11. Discussion</h2>
+<p>
+Explores implications for national sovereignty, ethics in governance, and open-data democratization.
+Draws parallels with EU transparency initiatives and emerging U.N. guidelines on dual allegiance disclosure.
+</p>
+</section>
+
+<section>
+<h2>12. Limitations</h2>
+<p>
+Data incompleteness, underreporting in FARA filings, and classification bias may constrain inference strength.  
+Ethical limitations prevent intrusive investigation beyond verified public records.
+</p>
+</section>
+
+<section>
+<h2>13. Future Work</h2>
+<p>
+Integrate blockchain-based data provenance (TitleChain model).  
+Extend dataset coverage to OECD member states.  
+Develop visualization APIs for civic-tech developers and journalists.
+</p>
+</section>
+
+<section>
+<h2>14. References</h2>
+<p>
+Citations follow <strong>APA 7th edition</strong> guidelines. Example sources:
+<ul>
+<li>OpenSecrets. (2024). <em>Lobbying database.</em> https://www.opensecrets.org</li>
+<li>U.S. Congress. (2025). <em>Congressional records dataset.</em> https://www.congress.gov</li>
+<li>Bevans, W. H. (2025). <em>Coalition Transparency Initiative Documentation.</em></li>
+</ul>
+</p>
+</section>
+
+<footer>
+© 2025 William H. Bevans Jr. | Coalition Transparency Project • All rights reserved.<br>
+This HTML is designed for static hosting on <strong>GitHub Pages</strong>.
 </footer>
 </body>
 </html>
