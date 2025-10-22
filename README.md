@@ -3,7 +3,7 @@
 
 **Author:** William H. Bevans Jr.  
 **Affiliation:** TitleChain Research Initiative / Coalition Transparency Project  
-**Repository:** [dual-citizenship-registry-analysis](https://github.com/yourusername/dual-citizenship-registry-analysis)  
+**Repository:** [dual-citizenship-registry-analysis](https://github.com/williambevans/dual-citizenship-registry-analysis)  
 **Published:** 2025  
 
 ---
