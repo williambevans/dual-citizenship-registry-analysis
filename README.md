@@ -111,10 +111,10 @@ Ethical limits prevent intrusive investigation beyond verified public records.
 
 ### 🪶 License
 MIT License © 2025 William H. Bevans Jr.  
-For academic use under **TitleChain Research Initiative**.
+For academic use under **Research Initiative**.
 
 ---
 
 ### 🏛️ Contact
 **Coalition Transparency Project**  
-Email: contact@titlechain.ai  |  Waco, Texas • USA
+ |  Waco, Texas • USA
